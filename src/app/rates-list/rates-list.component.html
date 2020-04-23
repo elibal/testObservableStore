@@ -1,0 +1,18 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type Name</th>
+            <th>Annual Percent</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let rate of _rates">
+        <td>{{ rate.rate_id }}</td>
+        <td>{{ rate.rate_name }}</td>
+        <td>{{ rate.rate_type_name }}</td>
+        <td>{{ rate.annual_percent }}</td>
+    </tr>
+</table>
+Number of Customers: {{ _rates.length }}
+<br />

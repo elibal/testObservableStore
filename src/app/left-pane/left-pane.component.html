@@ -1,0 +1,5 @@
+<h1>Rates</h1>
+<br />
+<div *ngIf="rates$ | async as rates">
+    <app-rates-list [rates]="rates"></app-rates-list>
+</div>
