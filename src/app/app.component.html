@@ -1,6 +1,7 @@
 <!-- <router-outlet></router-outlet> -->
 <div class="container">
-  <div class="row">
+  <button type="button" class="btn btn-primary" (click)="changeState()">{{ this.state }}</button>
+  <div class="row" *ngIf="this.state == 'store'">
     <div class="col-md-6">
       <app-left-pane></app-left-pane>
     </div>
@@ -8,4 +9,12 @@
       <app-right-pane></app-right-pane>
     </div>
   </div>
+  <div class="row" *ngIf="this.state == 'vardi'">
+    <div class="col-md-6">
+      <app-vardi-left-pane></app-vardi-left-pane>
+    </div>
+    <div class="col-md-6">
+      <app-vardi-right-pane></app-vardi-right-pane>
+    </div>
+  </div>  
 </div>

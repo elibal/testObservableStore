@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-observables-store';
+  public state='store';
+
+  changeState() {
+    if (this.state == 'store')
+      this.state = 'vardi';
+    else
+      this.state = 'store';
+  }
 }

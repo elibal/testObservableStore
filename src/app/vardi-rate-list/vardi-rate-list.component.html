@@ -8,7 +8,7 @@
             <th></th>
         </tr>
     </thead>
-    <tr *ngFor="let rate of _rates">
+    <tr *ngFor="let rate of rates">
         <td>{{ rate.rate_id }}</td>
         <td>{{ rate.rate_name }}</td>
         <td>{{ rate.rate_type_name }}</td>
@@ -16,5 +16,5 @@
         <td><button type="button" class="btn btn-primary" (click)="editRate(rate.rate_id)">Edit</button></td>
     </tr>
 </table>
-Number of Customers: {{ _rates.length }}
+Number of Customers: {{ rates?.length }}
 <br />

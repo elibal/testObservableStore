@@ -1,0 +1,18 @@
+<h1>Add Rate</h1>
+<form [formGroup]="rs.rateForm" (ngSubmit)="rs.submit()">
+  <div class="form-group">
+    <label for="name">Id</label>
+    <input type="text" class="form-control" formControlName="rate_id" readonly />
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" formControlName="rate_name" />
+    <div class="alert alert-danger" [hidden]="rs.rateForm.controls.rate_name.valid">Name is required</div>
+  </div>
+  <div class="form-group">
+    <label for="alterEgo">Annual Percent</label>
+    <input type="text" class="form-control" formControlName="annual_percent" />
+    <div class="alert alert-danger" [hidden]="rs.rateForm.controls.annual_percent.valid">Annual Percent is required</div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!rs.rateForm.valid">Submit</button>
+</form>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { IRate } from '../shared/shared.models';
 import { Observable } from 'rxjs';
 import { merge, map } from 'rxjs/operators';
@@ -21,6 +21,8 @@ export class RatesListComponent implements OnInit {
           // this.calculateOrders();
       }
   }
+  @Output() edit: EventEmitter<number> = new EventEmitter<number>();
+
   // filteredCustomers: Customer[] = [];
   // customersOrderTotal: number;
   // currencyCode = 'USD';
@@ -29,6 +31,10 @@ export class RatesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  editRate(id: number) {
+    this.edit.emit(id);
   }
 
 }

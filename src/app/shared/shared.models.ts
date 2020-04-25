@@ -11,5 +11,6 @@ export enum RatesStoreActions {
     AddRate = 'ADD_RATE',
     RemoveRate = 'REMOVE_RATE',
     GetRates = 'GET_RATE',
-    SortRates = 'SORT_RATE'
+    SortRates = 'SORT_RATE',
+    SetSelectedRate = 'SET_SELECTED_RATE'
 }

@@ -50,12 +50,41 @@ export class StoreService extends ObservableStore<StoreState> {
       }
   }
 
+  getSelectedRate(): Observable<IRate> {
+    return of(this.getState().selectedRate);
+  }
+
+  selectRate(id): void {
+    this.get().subscribe(rates => {
+            console.log('inside selectRate. after get. id: ' + id);
+            let filteredRates = rates.filter(r => r.rate_id === id);
+            console.log(filteredRates);
+            const rate = (filteredRates && filteredRates.length) ? filteredRates[0] : null;                
+            this.setState({ selectedRate: rate }, RatesStoreActions.SetSelectedRate);
+            console.log('inside selectRate. After setState. selectedRate is: ' + rate);
+        });
+  }
+
   add(rate: IRate) {
       let state = this.getState();
       rate.rate_id = state.rates.length + 1;
       state.rates.push(rate);
       this.setState({ rates: state.rates }, RatesStoreActions.AddRate);
+      this.setState({ selectedRate: null }, RatesStoreActions.SetSelectedRate);
   }
+
+  update(rate: IRate) {
+    let state = this.getState();
+    var found = state.rates.findIndex(r => r.rate_id == rate.rate_id);
+
+    if (found > -1) {
+      console.log (found);
+      state.rates[found] = rate;
+    }
+
+      this.setState({ selectedRate: null }, RatesStoreActions.SetSelectedRate);
+      this.setState({ rates: state.rates }, RatesStoreActions.GetRates);
+}
 
   // remove() {
   //     let state = this.getState();

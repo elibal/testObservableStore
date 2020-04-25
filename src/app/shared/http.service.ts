@@ -10,8 +10,10 @@ export class HttpService {
   constructor() { }
 
   getRates() {
+    console.log('inside httpService getRates');
     const ratesObservable = new Observable<IRate[]>(observer => {
       setTimeout(() => {
+          console.log('inside httpService getRates setTimeout');
           observer.next([{
             rate_id: 1,
             rate_name: 'חשכל',

@@ -35,4 +35,9 @@ export class LeftPaneComponent implements OnInit {
       ));
   }
 
+  public changeRateValue(rate_id) {
+    console.log('inside changeRateValue. rate id: ' + rate_id);
+    this.store.selectRate(rate_id);
+  }
+
 }
